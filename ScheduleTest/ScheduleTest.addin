@@ -18,6 +18,15 @@
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
   </AddIn>
+  <AddIn Type="Command">
+    <Text>ScheduleTest - Command 3</Text>
+    <Description>Some description for ScheduleTest</Description>
+    <Assembly>ScheduleTest.dll</Assembly>
+    <FullClassName>ScheduleTest.Command3</FullClassName>
+    <ClientId>4AC1420F-28E8-4971-AFE0-20D167867504</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
   <AddIn Type="Application">
     <Name>ScheduleTest</Name>
     <Assembly>ScheduleTest.dll</Assembly>

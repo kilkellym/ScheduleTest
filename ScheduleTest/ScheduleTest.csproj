@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Command3.cs" />
     <Compile Include="Utils\ButtonDataClass.cs" />
     <Compile Include="Command2.cs" />
     <Compile Include="Command1.cs" />

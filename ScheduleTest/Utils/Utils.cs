@@ -11,6 +11,7 @@ namespace ScheduleTest
     internal static class Utils
     {
         // ----Schedule methods
+
         internal static ViewSchedule CreateAreaSchedule(Document doc, string schedName, AreaScheme curAreaScheme)
         {
             ElementId catId = new ElementId(BuiltInCategory.OST_Areas);
