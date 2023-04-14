@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>ScheduleTest - Command 1</Text>
+    <Description>Some description for ScheduleTest</Description>
+    <Assembly>ScheduleTest.dll</Assembly>
+    <FullClassName>ScheduleTest.Command1</FullClassName>
+    <ClientId>99db6a29-a00a-4802-b77d-9081f4254858</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>ScheduleTest - Command 2</Text>
+    <Description>Some description for ScheduleTest</Description>
+    <Assembly>ScheduleTest.dll</Assembly>
+    <FullClassName>ScheduleTest.Command2</FullClassName>
+    <ClientId>4d29db0e-4c1e-40ff-a5ec-78fe21f753e3</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>ScheduleTest</Name>
+    <Assembly>ScheduleTest.dll</Assembly>
+    <FullClassName>ScheduleTest.App</FullClassName>
+    <ClientId>e88e5e60-7878-4760-8ec6-529a48052ade</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
