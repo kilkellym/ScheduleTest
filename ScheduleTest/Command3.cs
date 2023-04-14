@@ -42,42 +42,52 @@ namespace ScheduleTest
                 ScheduleDefinition curDef = curSchedule.Definition;
                 
                 List<ElementId> elemIdList = new List<ElementId>();
+                List<List<string>> scheduleData = new List<List<string>>();
+                List<string> columnList = new List<string> { "ElementId" };
 
-                foreach(SchedulableField curField in curDef.GetSchedulableFields())
+                foreach(ScheduleFieldId curFieldId in curDef.GetFieldOrder())
                 {
-                    elemIdList.Add(curField.ParameterId);
+                    
+                    ScheduleField curField = curDef.GetField(curFieldId);
+                    if(curField.IsHidden == false)
+                    {
+                        elemIdList.Add(curField.ParameterId);
+                        columnList.Add(curField.GetName());
+                    }   
                 }
 
-                List<List<string>> scheduleData = new List<List<string>>(); 
+                // add column headers
+                scheduleData.Add(columnList);
+                
                 foreach(Element curScheduleItem in collector)
                 {
                     List<string> curRow = new List<string>();
                     curRow.Add(curScheduleItem.Id.ToString());
 
-                    foreach (Parameter curParam in curScheduleItem.Parameters)
+                    foreach (ElementId curId in elemIdList)
                     {
-                        if (curParam.Definition is InternalDefinition internalDefinition)
+                        foreach (Parameter curParam in curScheduleItem.Parameters)
                         {
-                            // Get the BuiltInParameter
-                            BuiltInParameter builtInParameter = (BuiltInParameter)internalDefinition.Id.IntegerValue;
-
-                            foreach(ElementId curId in elemIdList)
+                            if (curParam.Definition is InternalDefinition internalDefinition)
                             {
-
-
-                                if(curId.IntegerValue == (int)builtInParameter)
+                                // Get the BuiltInParameter
+                                BuiltInParameter builtInParameter = (BuiltInParameter)internalDefinition.Id.IntegerValue;
+                                // this IF statement is generating false positives!!!!
+                                if (curId.IntegerValue == (int)builtInParameter)
                                 {
                                     string curValue = curScheduleItem.get_Parameter(builtInParameter).AsValueString();
                                     curRow.Add(curValue);
+                                    break;
                                 }
-                            }   
+                            }
+                            else
+                            {
+                                // do something for shared and project params
+                                curRow.Add("ZZZZZZ");
+                            }
                         }
-                        else
-                        {
-                            // do something about shared parameters / project parameters
-                        }
-                    }  
-                    
+                    }
+
                     scheduleData.Add(curRow);
                 }
 
