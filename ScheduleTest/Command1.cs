@@ -32,9 +32,9 @@ namespace ScheduleTest
                 AreaScheme curAreaScheme = Utils.GetAreaSchemeByName(doc, "Gross Building");
                 ViewSchedule newSched = Utils.CreateAreaSchedule(doc, "New Area Schedule (Gross Building)", curAreaScheme);
 
-                List<string> paramNames = new List<string>() { "Number", "Name", "Level", "Area", "Comments" };
+                List<string> paramNames = new List<string>() { "Number", "Name", "Level", "Area", "Comments", "TEST PARAM" };
 
-                List<Parameter> paramList = Utils.GetParametersByName(doc, paramNames);
+                List<Parameter> paramList = Utils.GetParametersByName(doc, paramNames, BuiltInCategory.OST_Areas);
                 Utils.AddFieldsToSchedule(doc, newSched, paramList);
 
                 t.Commit();

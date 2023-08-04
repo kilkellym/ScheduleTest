@@ -40,7 +40,8 @@ namespace ScheduleTest
             ElementId ceilingId = new ElementId(BuiltInParameter.ROOM_FINISH_CEILING);
             ElementId wallId = new ElementId(BuiltInParameter.ROOM_FINISH_WALL);
             ElementId commentId = new ElementId(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS);
-            List<ElementId> fieldList = new List<ElementId> { numId, nameId, baseId, floorId, wallId, ceilingId, commentId };
+            ElementId projectParamId = Utils.GetProjectParameterId(doc, "TEST PARAM");
+            List<ElementId> fieldList = new List<ElementId> { numId, nameId, baseId, floorId, wallId, ceilingId, commentId, projectParamId };
 
             using(Transaction t = new Transaction(doc))
             {

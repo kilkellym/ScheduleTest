@@ -37,12 +37,12 @@ namespace ScheduleTest
             }
         }
 
-        internal static List<Parameter> GetParametersByName(Document doc, List<string> paramNames)
+        internal static List<Parameter> GetParametersByName(Document doc, List<string> paramNames, BuiltInCategory cat)
         {
             List<Parameter> returnList = new List<Parameter>();
 
             FilteredElementCollector collector = new FilteredElementCollector(doc);
-            collector.OfCategory(BuiltInCategory.OST_Areas);
+            collector.OfCategory(cat);
 
             foreach (string curName in paramNames)
             {
@@ -53,6 +53,16 @@ namespace ScheduleTest
             }
 
             return returnList;
+        }
+        internal static ElementId GetProjectParameterId(Document doc, string name)
+        {
+            ParameterElement pElem = new FilteredElementCollector(doc)
+                .OfClass(typeof(ParameterElement))
+                .Cast<ParameterElement>()
+                .Where(e => e.Name.Equals(name))
+                .FirstOrDefault();
+
+            return pElem?.Id;
         }
 
         internal static AreaScheme GetAreaSchemeByName(Document doc, string schemeName)
